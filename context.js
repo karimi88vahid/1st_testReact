@@ -2,19 +2,17 @@ import React, {useState, useEffect} from "react"
 
 const Context = React.createContext()
 
-function ContextProvider ({children}){
+function ContextProvider({children}) {
     const [allPhotos, setAllPhotos] = useState([])
     
-    const url = 
-    "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
-    
+    const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
     useEffect(() => {
         fetch(url)
-        .then(res => res.json())
-        .then(data => setAllPhotos(data))
+            .then(res => res.json())
+            .then(data => setAllPhotos(data))
     }, [])
     
-    return(
+    return (
         <Context.Provider value={{allPhotos}}>
             {children}
         </Context.Provider>
