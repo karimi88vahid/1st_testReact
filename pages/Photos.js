@@ -5,7 +5,7 @@ import {Context} from "../Context"
 import {getClass} from "../utils"
 
 function Photos() {
-    const {allPhotos} = useContext(Context)  /*grab all photos*/
+    const {allPhotos} = useContext(Context)
     
     const imageElements = allPhotos.map((img, i) => (
         <Image key={img.id} img={img} className={getClass(i)} />
